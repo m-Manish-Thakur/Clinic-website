@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Website</title>
+    <link rel="Website Icon" href="Images/webIocn.png" type="png">
+    <!-- Style Css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Cabin:wght@500&family=Carter+One&family=Charm&family=Diplomata+SC&family=Fondamento&family=Henny+Penny&family=Josefin+Sans:ital,wght@0,400;1,500&family=Jost&family=Lobster&family=Lobster+Two:ital@1&family=Merienda:wght@300&family=Montserrat&family=Patrick+Hand&family=Patua+One&family=Poppins&family=Roboto&family=Roboto+Mono:wght@100&family=Roboto+Slab:wght@300&family=Rubik&family=Rubik+Moonrocks&family=Signika+Negative:wght@300&family=Slabo+27px&family=Sriracha&family=Staatliches&family=Tiro+Kannada&family=Ubuntu:wght@300&family=Xanh+Mono&display=swap" rel="stylesheet">
+    <!-- BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+            <div id="preloader">
+                <div class="custom-loader"></div>
+            </div>
+
+
+
+
+
+    <header>
+        <div class="logo">
+            <img src="Images/logo.png">
+        </div>
+
+        <nav>
+                <a href="#carouselExampleCaptions">Home</a>
+                <a href="#speciality">About Us</a>
+                <a href="#equipment">Equipment</a>
+                <a href="#faq">FAQ</a>
+                <a href="#specialist">Specialist</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contacts</a>
+        </nav>
+        <input type="text" id="search_input" placeholder="Search">
+        <div style="display: flex;">
+            <div style="display: flex;align-items: center;position: relative;">
+                 <i class="fa-solid fa-magnifying-glass" id="search_icon"></i>
+            </div>
+            <i class="fa-solid fa-bars" id="menuIcon" style="margin-left: 25px;"></i>
+        </div>
+    </header>
+
+    <div id="menuBox">
+        <a href="#carouselExampleCaptions" onclick="close_menu()">Home</a>
+        <a href="#speciality" onclick="close_menu()">About Us</a>
+        <a href="#equipment" onclick="close_menu()">Equipment</a>
+        <a href="#faq" onclick="close_menu()">FAQ</a>
+        <a href="#specialist" onclick="close_menu()">Specialist</a>
+        <a href="#testimonials" onclick="close_menu()">Testimonials</a>
+        <a href="#contact" onclick="close_menu()">Contacts</a>
+    </div>
+
+
+
+<!-- /* ###########################   HOME  PAGE    ################################################# */ -->
+
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Images/2.jpg" class="d-block w-100" alt="">
+        <div class="carousel-caption d-md-block" id="text" >
+            <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <h1>The Highest Standard <br> <b> of Eye Care</b></h1>
+                <p>Experience freedom from glasses with us</p>
+                <button>Explore our services  <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></button>
+            </div>
+        </div>
+        
+      </div>
+      <div class="carousel-item">
+        <img src="Images/1.jpg" class="d-block w-100">
+        <div class="carousel-caption d-md-block" id="text" >
+            <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <h1>Care As Unique<br> <b> As Your Own Eyes</b></h1>
+                <p>Live life with clear vision & healthy eyes.</p>
+                <button>Explore our services  <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<!-- /* ###########################   HOME  PAGE  END ################################################# */ -->
+
+
+
+
+
+
+
+
+<!-- /* ###########################   SPECIALITY   PAGE   ################################################# */ -->
+
+<div class="_surgeries">
+    <div>
+        <img src="Images/eye.png">
+        <h2>More than <span>50 000</span> surgeries</h2>
+    </div>
+    <p>The number of surgeries performed in our clinic</p>
+</div>      
+
+
+<div id="speciality">
+    <div id="heading" style="padding: 20px 0;">
+        <h2 style="text-align: center;">The Heart and Science <br> of <span style="color: var(--royalblue);"> Ophthalmology </span> </h2>
+    </div>
+    <nav>
+        <p style="color: var(--royalblue);" onclick="openFirstAbout()" id="about_btn1">Eyes Diagnosis</p>
+        <p onclick="openSecondAbout()"  id="about_btn2">Eyes Treatment</p>
+        <p  id="about_btn3">Prices</p>
+    </nav>
+
+    <div id="first_about" class="specialist_con" data-aos="zoom-in" data-aos-duration="2000">
+        <div class="images">
+            <img src="Images/index-img-02 (1).png">
+            <i class="fa-solid fa-play" id="playBtn"></i>
+        </div>
+        <div class="content">
+                <p>Many of the normal daily activities we take for granted – working, driving a car, reading – depend on the health of our Eyes. Eye disease which goes undetected can lead to unnecessary impairment of sight. We at our centre feel your eyesight is irreplaceable. Many of the normal daily activities we take for granted – working, driving a car – depend on the health of our Eyes.</p>
+                    <h3>Complete clinical evaluation of the eye.</h3>
+                    <h3>A visual acuity testing, non-contact tonometry is done for every patient.</h3>
+                    <h3>After a split lamp examination, refraction is done wherever required.</h3>
+                    <h3>All patients entering the clinic for the first time undergo a detailed fundus.</h3>
+                    <h3>Eye muscle coordination especially for children is tested.</h3>
+        </div>
+    </div>
+
+    <div id="sec_about" class="specialist_con">
+        <div class="images">
+            <img src="Images/index-img-01.png">
+            <i class="fa-solid fa-play" id="playBtn"></i>
+        </div>
+        <div class="content">
+                <p>Many of the normal daily activities we take for granted – working, driving a car, reading – depend on the health of our Eyes. Eye disease which goes undetected can lead to unnecessary impairment of sight. We at our centre feel your eyesight is irreplaceable. Many of the normal daily activities we take for granted – working, driving a car – depend on the health of our Eyes.</p>
+                    <h3>Complete clinical evaluation of the eye.</h3>
+                    <h3>A visual acuity testing, non-contact tonometry is done for every patient.</h3>
+                    <h3>After a split lamp examination, refraction is done wherever required.</h3>
+                    <h3>All patients entering the clinic for the first time undergo a detailed fundus.</h3>
+                    <h3>Eye muscle coordination especially for children is tested.</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- /* ###########################   SPECIALITY  PAGE  END   ################################################# */ -->
+
+
+
+
+
+
+
+
+<!-- ##########################     Equipment PAGE    ########################################### -->
+
+<div id="equipment">
+
+
+    <div id="heading">
+        <p>Ophthalmology Devices</p>
+        <h2>Our Equipment</h2>
+        <div style="height: 3.1px;width: 50px;background-color: var(--royalblue);margin: 15px auto 0 auto;border-radius: 2px;"></div>
+    </div>
+
+
+    <div class="eqp_content" id="eqp_content" data-aos="fade-down">
+        <div class="item" id="firstEqp">
+            <img src="Images/img-equipment-01.jpg" >
+            <div class="text">
+                <h2>HRK-1 Auto Refractor</h2>
+                <p style="font-family: 'roboto', sans-serif;color: var(--light_gray);line-height: 25px;letter-spacing: 0.3px;margin-top: 20px;">Professionals also admire HRK-1's commitment to its fundamental foundation as a quality Auto Ref/ Keratometer, now featuring Smart Assembly Moving Control Technology, and high-performance light source. As eye-diseases and ophthalmologic disorders are increasing, Huvitz is devoting its efforts to think more deeply about the essence of its technology offerings.</p>
+                    <div style="margin-top: 10px;">
+                            <h3>Smart Assembly Moving Control Technology</h3>
+							<h3>Quick Virtual Aiming Dot Function</h3>
+							<h3>Simple up & Down Auto Tracking</h3>
+							<h3>Familiar User Friendly Interface</h3>
+                    </div>
+            </div>
+        </div>
+
+        <div class="item" id="secondEqp">
+            <img src="Images/img-equipment-03.jpg" >
+            <div class="text">
+                <h2>Huvitz HRK-8000A Autorefractor</h2>
+                <p style="font-family: 'roboto', sans-serif;color: var(--light_gray);line-height: 25px;letter-spacing: 0.3px;margin-top: 20px;">You can customize lenses, play a more active role in managing cataract and refractive surgery patients and more with the HRK-8000A. The HRK-8000A combines the features of an auto refractor, auto keratometer, and wavefront aberrometer into one, high-tech instrument.</p>
+                    <div style="margin-top: 10px;">
+                        <h3>Optimized Optical System</h3>
+						<h3>Micro Lens Array</h3>
+						<h3>Customized Lens Manufacturing</h3>
+						<h3>More Data on Aberration Measurement</h3>
+						<h3>High Order Aberration Map</h3>
+                    </div>
+            </div>
+        </div>
+
+        <div class="item" id="thirdEqp">
+            <img src="Images/img-equipment-02.jpg">
+            <div class="text">
+                <h2>ZEISS Cirrus HD OCT 500 & 5000</h2>
+                <p style="font-family: 'roboto', sans-serif;color: var(--light_gray);line-height: 25px;letter-spacing: 0.3px;margin-top: 20px;">The new CIRRUS HD-OCT models 5000 and 500 are specifically designed to deliver a carefully constructed set of sophisticated applications that build upon one another to deliver rapidly-evolving diagnostics for multiple patient populations.</p>
+                    <div style="margin-top: 10px;">
+                        <table>
+                            <tr>
+                                <th>Scan pattern</th>
+                                <th>Capture time</th>
+                            </tr>
+                            <tr>
+                                <td>Degrees</td>
+                                <td>College of Surgeons</td>
+                            </tr>
+                            <tr>
+                                <td>512 x 128</td>
+                                <td>2.4 seconds</td>
+                            </tr>
+                            <tr>
+                                <td>200 x 200</td>
+                                <td>1.5 seconds</td>
+                            </tr>
+                            <tr>
+                                <td>5-Line Raster / Enhanced HD Raster</td>
+                                <td>0.8 seconds</td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex;align-items: center;justify-content: center;">
+            <div id="btn1" style="background-color: var(--royalblue);"></div>
+            <div id="btn2"></div>
+            <div id="btn3"></div>
+    </div>
+</div>
+
+
+<!-- ##########################     Equipment PAGE    END  ########################################### -->
+
+
+
+
+
+
+
+
+
+<!-- ############################     FAQ PAGE       ####################################### -->
+
+<div id="faq">
+    <div id="bgImg"></div>
+    <div class="content">
+            <h1>Patient Information</h1>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item" style="margin-top: 13px;" data-aos="fade-up" data-aos-duration="2000">
+                  <h2 class="accordion-header"  >
+                    <button   class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                       <b style="display: flex;"><span style="color: var(--royalblue);margin-right: 7px;"> 1. </span>
+                            <span style="margin-left: 5px;">  How do I make an appointment?</span>
+                        </b>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" style="background-color: transparent;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        If you would like to make an appointment with one of our practitioners, please contact our reception staff. Alternatively you may book your appointments online. Every effort will be made to accommodate your preferred time and choice of practitioner.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" style="margin-top: 13px;" data-aos="fade-up" data-aos-duration="2000">
+                  <h2 class="accordion-header"  >
+                    <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <b  style="display: flex;"><span style="color: var(--royalblue);margin-right: 7px;"> 2. </span>
+                           <span>  How do I get a copy of my records to another provider?</span> 
+                        </b>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body"  >
+                        Everyone’s needs are different, so have a chat to your dentist about how often you need to have your teeth checked by them based on the condition of your mouth, teeth and gums. It’s recommended that children see their dentist at least once a year.</div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" style="margin-top: 13px;" data-aos="fade-up" data-aos-duration="2000">
+                  <h2 class="accordion-header"  >
+                    <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <b style="display: flex;"><span style="color: var(--royalblue);margin-right: 7px;"> 3. </span>
+                          <span>  Is there a charge for copies of my medical record?</span> 
+                        </b>
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body"  >
+                        Everyone’s needs are different, so have a chat to your dentist about how often you need to have your teeth checked by them based on the condition of your mouth, teeth and gums. It’s recommended that children see their dentist at least once a year.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item" style="margin-top: 13px;" data-aos="fade-up" data-aos-duration="2000">
+                    <h2 class="accordion-header" >
+                      <button  class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          <b style="display: flex;"><span style="color: var(--royalblue);margin-right: 7px;"> 4. </span>
+                           <span> Lorem ipsum dolor, sint consectotam odit labore quae?</span> 
+                          </b>
+                      </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body"  >
+                        Everyone’s needs are different, so have a chat to your dentist about how often you need to have your teeth checked by them based on the condition of your mouth, teeth and gums. It’s recommended that children see their dentist at least once a year.
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                        <!-- Accordion END -->
+                <button class="button">ask question <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></button>
+
+    </div>
+</div>
+
+
+
+<!-- ############################     FAQ PAGE  END        ####################################### -->
+
+
+
+
+
+
+
+<!-- ############################     SPECIALIST PAGE         ####################################### -->
+
+<div id="specialist">
+    <div id="heading">
+        <p>Perfect Team</p>
+        <h2>A Professional & <span style="color: var(--royalblue);"> Care Provider</span></h2>
+        <div style="height: 3.1px;width: 50px;background-color: var(--royalblue);margin: 15px auto 0 auto;border-radius: 2px;"></div>
+    </div>
+
+    <div class="doct_content">
+        <div class="item" data-aos="zoom-in" data-aos-duration="2500">
+            <div class="img">
+                <img src="Images/doctor-01.jpg">
+                <div class="socila_link">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div>
+                <h3>Dr. Stuart Orozco</h3>
+                <p>Ophthalmology</p>
+            </div>
+        </div>
+
+        <div class="item" data-aos="zoom-in" data-aos-duration="2500">
+            <div class="img">
+                <img src="Images/doctor-02.jpg">
+                <div class="socila_link">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div>
+                <h3>Dr. Berry Gardner</h3>
+                <p>Ophthalmology</p>
+            </div>
+        </div>
+
+        <div class="item" data-aos="zoom-in" data-aos-duration="2500">
+            <div class="img">
+                <img src="Images/doctor-03.jpg">
+                <div class="socila_link">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div>
+                <h3>Dr. Betty Bone</h3>
+                <p>Ophthalmology</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ############################     SPECIALIST PAGE  END        ####################################### -->
+
+
+
+
+
+<div id="appointments">
+    <div>
+        <h1>Online Appointments & Prescriptions</h1>
+        <p>You can now book a limited amount of doctors’ appointments online</p>
+        <button>Doctor Timetable <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></button>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- ############################     Testimonial  PAGE        ####################################### -->
+
+
+<div id="testimonials">
+    <div style="position: relative;">
+        <img src="Images/tesimonials-bg.png">
+        <i class="fa-solid fa-quote-right" id="quote"></i>
+    </div>
+
+    <div class="container">
+
+        <h1 style="text-align: center;"><i class="fa-solid fa-quote-right"></i> <br> Clinic Testimonials</h1><br>
+
+        <div class="testimonial">
+            <div class="slide_row" id="slide">
+                <div class="slide_col">
+                    <p> I would like to give you a special 'Thank You' to all of you for the care
+                        you've given. You were special to a part of our lives for the year we knew you all. You were
+                        very caring. Nurses like you are never forgotten. I just can't thank you enough.
+                    </p>
+                    <h3>- Stevan Roa, <span style="color: var(--royalblue);font-style: italic;">Bussinesswoman</span></h3>
+                </div>
+                <div class="slide_col">
+                    <p> Today is my last day of infusion. But I know I will be back …not as a
+                        patient but a visitor. I have only positive things to say about the nurses at MedEra here in
+                        infusion and also on the 4th Floor.
+                    </p>
+                    <h3>- SJoseph Dunbar, <span style="color: var(--royalblue);font-style: italic;">Carpenter</span></h3>
+                </div>
+                <div class="slide_col">
+                    <p> Am very impressed with you all as well as being highly proficient is
+                        absolutely adorable. I feel so relaxed in her capable hands and hope to be her patient for a
+                        very long time! You are a fantastic team!!!
+                    </p>
+                    <h3>- Wilmer Stevenson, <span style="color: var(--royalblue);font-style: italic;">Creative manager</span></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="indigator">
+            <span class="btn active"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- ############################     Testimonial PAGE  END        ####################################### -->
+
+
+
+<!-- ############################     CONTACT  PAGE        ####################################### -->
+
+<div id="contact">
+    <div class="form">
+        <h2>Looking for a <span style="color: var(--royalblue);"> Certified Doctor?</span></h2>
+        <p>We believe in providing the best possible care to all our existing patients and welcome new patients to sample.</p>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your name*">
+            <div class="flex_input">
+                <input type="phone" name="name" placeholder="Your Phone">
+                <input type="email" name="name" placeholder="Email">
+            </div>
+            <textarea name="message" cols="30" rows="5" placeholder="ask query"></textarea>
+            <button>Send request <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></button>
+        </form>
+    </div>
+    <img src="Images/banner-callus.png">
+</div>
+
+
+
+<!-- ############################     CONTACT  PAGE  END      ####################################### -->
+
+
+
+<!-- ############################     FOOTER PAGE    ####################################### -->
+
+
+<footer>
+        <div class="item1">
+            <img src="Images/logo.png" height="60px">
+            <p>To receive email releases, simply provide <br> us with your email below</p>
+            <input type="email" placeholder="Your Email">
+            <div>
+                <i class="fa-brands fa-facebook-f"></i><i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-instagram"></i><i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div class="item2">
+            <h2>Blog Posts</h2>
+            <div style="height: 2.5px;width: 50px;background-color: var(--royalblue);margin-top: 15px;border-radius: 1px;"></div>
+
+            <div style="display: flex;margin-top: 15px;">
+                <img src="Images/news-02.jpg" style="border-radius: 50%;height: 50px;width: 50px;">
+                <span style="margin-left: 15px;">
+                    <span style="font-size: 16px;font-family: 'roboto', sans-serif;letter-spacing: 0.3px;color: var(--gray_text);font-weight: bold;line-height: 20px;">The doctor’s guide to healthy break...</span>
+                    <br><span style="color: var(--light_gray);font-family: 'roboto', sans-serif;font-size: 15px;letter-spacing: 0.4px;letter-spacing: 0;">September 26, 2023</span>
+                </span>
+            </div>
+            <div style="display: flex;align-items: center;margin-top: 15px;">
+                <img src="Images/news-03.jpg" style="border-radius: 50%;height: 50px;width: 50px;">
+                <span style="margin-left: 15px;">
+                    <span style="font-size: 16px;font-family: 'roboto', sans-serif;letter-spacing: 0.3px;color: var(--gray_text);font-weight: bold;line-height: 20px;">Smile For Your Health!...</span>
+                    <br><span style="color: var(--light_gray);font-family: 'roboto', sans-serif;font-size: 15px;letter-spacing: 0.4px;letter-spacing: 0;">August 10, 2023</span>
+                </span>
+            </div>
+            <div style="display: flex;align-items: center;margin-top: 15px;">
+                <img src="Images/doctor-02.jpg" style="border-radius: 50%;height: 50px;width: 50px;">
+                <span style="margin-left: 15px;">
+                    <span style="font-size: 16px;font-family: 'roboto', sans-serif;letter-spacing: 0.3px;color: var(--gray_text);font-weight: bold;line-height: 20px;">Tooth Fairy Traditions...</span>
+                    <br><span style="color: var(--light_gray);font-family: 'roboto', sans-serif;font-size: 15px;letter-spacing: 0.4px;letter-spacing: 0;">June 16, 2023</span>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="item3">
+            <h2>Our Contacts</h2>
+            <div style="height: 2.5px;width: 50px;background-color: var(--royalblue);margin-top: 15px;border-radius: 1px;"></div>
+            <p><i class="fa-solid fa-location-dot"></i><span>Center Point, Aligarh, 202001 <br>UP , India</span><p>
+            <p><i class="fa-solid fa-phone"></i><span><span style="color: var(--royalblue);font-weight: bold;">+91- 9634007020 </span><br><span>(24/7 General inquiry)</span></span></p>
+            <p><i class="fa-solid fa-envelope"></i><span>manishthakur@gmail.com</span></p>
+        </div>
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+</html>
