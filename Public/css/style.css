@@ -1,0 +1,1752 @@
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+    transition: 0.3s linear;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+:root{
+    --royalblue: rgb(42, 155, 247);
+    --gray_bg: rgba(238, 245, 247, 0.758);
+    --gray_text: rgb(50, 60, 60);
+    --light_gray: rgb(124, 124, 124);
+}
+
+
+
+#preloader{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 0;
+    z-index: 19;
+    display: grid;
+    place-items: center;
+}
+.custom-loader {
+    width: 100px;
+    height: 100px;
+    display: grid;
+}
+.custom-loader::before,
+.custom-loader::after {    
+    content:"";
+    grid-area: 1/1;
+    --c: radial-gradient(farthest-side,#766DF4 92%,#0000);
+    background: 
+      var(--c) 50%  0, 
+      var(--c) 50%  100%, 
+      var(--c) 100% 50%, 
+      var(--c) 0    50%;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    animation: s2 1s infinite;
+}
+.custom-loader::before {
+  margin:8px;
+  filter:hue-rotate(45deg);
+  background-size: 16px 16px;
+  animation-timing-function: linear
+}
+
+@keyframes s2{ 
+  100%{transform: rotate(.5turn)}
+}
+
+
+#top{
+    padding: 13px 15px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 50;
+    bottom: 25px;
+    right: 30px;
+    background-color: rgb(16, 102, 207);
+    color: aliceblue;
+    font-size: 23px;
+}
+
+.social_media{
+    padding: 10px 10vw;
+    background-color: rgb(16, 102, 207);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.social_media .addr{
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+}
+.social_media .addr i{
+    font-size: 17px;
+    color: white;
+}
+.social_media .addr span{
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: rgb(211, 235, 245);
+    margin-left: 15px;
+    font-family: 'poppins', sans-serif;
+}
+.social_media .links{
+    display: flex;
+    align-items: center;
+}
+.social_media i{
+    font-size: 17px;
+    margin: 0 7px;
+    color: white;
+}
+
+@media screen and (max-width:1000px){
+    .social_media{
+        display: none;
+    }
+    #top{
+        padding: 15px 17px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+}
+
+
+/* ##################################       HEADER      #################################################### */
+
+
+header{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px 8vw;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: white;
+}
+header .logo img{
+    height: 50px;
+}
+
+nav a{
+    color: rgb(51, 84, 90);
+    text-decoration: none;
+    padding: 0 15px;
+    font-family: 'poppins' , sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 16px;
+}
+nav a:hover{
+    color: rgb(65, 142, 225);
+}
+header #menuIcon{
+    display: none;
+}
+header #closeMenuIcon{
+    display: none;
+    font-size: 24px;
+}
+header button{
+    padding: 9px 15px;
+    background: linear-gradient(to right,rgb(49, 169, 221),rgb(6, 124, 175));
+    color: white;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 5px;
+}
+header button:hover{
+    background: linear-gradient(to right,rgb(31, 143, 190),rgb(45, 169, 222));
+}
+
+
+#menuBox{
+    display: none;
+}
+
+
+
+@media screen and (max-width:1050px){
+    header{
+        padding: 10px 8vw;
+    }
+    header .logo img{
+        height: 45px;
+    }
+    header nav{
+        display: none;
+    }
+    header button{
+        display: none;
+    }
+    header #menuIcon{
+        display: block;
+        height: 40px;
+    }
+    header #closeMenuIcon{
+        display: none;
+    }
+    #menuBox{
+        position: fixed;
+        width: 100vw;
+        top: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 0;
+        overflow-x: hidden;
+        z-index: 10;
+        background-color: white;
+    }
+    #menuBox a{
+        width: 100%;
+        text-decoration: none;
+        font-size: 18px;
+        color: rgb(46, 46, 46);
+        font-family: 'cabin', sans-serif;
+        padding: 7px;
+        letter-spacing: 0.3px;
+        border-bottom: 1px solid rgb(216, 216, 216);
+    }
+    #menuBox.openMenu{
+        height: 360px;
+        padding: 20px 25px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-bottom: 1px solid rgb(196, 196, 196);
+    }
+}
+
+
+@media screen and (max-width:1350px){
+    header{
+        padding: 5px 5vw;
+    }
+}
+
+/* ####################################    HOME PAGE    ##########################################################s */
+#container{
+    width: 100vw;
+    min-height: 90vh;
+    background: linear-gradient(to top, rgba(8, 61, 175, 0.9), rgba(4, 66, 148, 0.85)), url(../Images/rawImage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 6vw;
+}
+#container .text{
+    width: 50%;
+}
+#container h1{
+    font-family: 'poppins', sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 65px;
+    letter-spacing: 0.3px;
+}
+#container p{
+    color: aliceblue;
+    font-family: 'poppins', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    margin-top: 40px;
+}
+#container button{
+    background-color: white;
+    padding: 12px 25px;
+    color: rgb(21, 92, 191);
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+#container button:hover{
+    background-color: rgba(232, 217, 217, 0);
+    color: rgb(255, 255, 255);
+}
+
+#container .btn2{
+    background-color: rgba(255, 255, 255, 0);
+    padding: 12px 25px;
+    color: rgb(255, 255, 255);
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+#container .btn2:hover{
+    background-color: white;
+    color: rgb(21, 92, 191);
+}
+#container #bg{
+    width: 55%;
+    transform: translateY(25px);
+}
+#carouselExample .carousel-control-prev,
+#carouselExample .carousel-control-next{
+    width: 5%;
+}
+#features{
+    width: 80%;
+    padding: 30px 20px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: rgba(186, 190, 195, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    z-index: 10;
+    transform: translateY(-50px);
+    background-color: rgb(255, 255, 255);
+}
+#features .container{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(../Images/bg-map.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+#features .container i{
+    font-size: 40px;
+    color: rgb(21, 92, 191);
+
+}
+#features .container h2{
+    font-family: 'poppins', sans-serif;
+    font-weight: 700;
+    color: rgb(21, 92, 191);
+    font-size: 40px;
+    margin-top: 15px;
+}
+#features .container p{
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'poppins', sans-serif;
+    color: rgb(60, 95, 108);
+    letter-spacing: 0.3px;
+    margin-top: 10px;
+}
+._surgeries
+{
+    display: none;
+}
+
+@media screen and (max-width: 700px){
+    #features {
+        display: none;
+}
+._surgeries{
+    display: block;
+    text-align: center;
+    padding: 25px 0;
+}
+._surgeries div{
+    display: flex;align-items: center;justify-content: center;
+}
+._surgeries img{
+    height: 40px;
+    transform: translateY(-5px);
+}
+._surgeries h2{
+    font-family: 'jost', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    color: rgb(57, 57, 57);
+}
+._surgeries h2 span{
+    transform: translateY(-15px);
+    color: var(--royalblue);
+    font-family: 'cabin', sans-serif;
+}
+._surgeries p{
+    color: var(--light_gray);
+    font-family: 'cabin', sans-serif;
+}
+@media screen and (max-width:500px){
+._surgeries p{
+    color: var(--light_gray);
+    font-family: 'cabin', sans-serif;
+    font-size: 15px;
+}
+}
+
+
+
+@media screen and (max-width:500px){
+    ._surgeries{
+        text-align: center;
+        padding: 20px;
+    }
+    ._surgeries div{
+        flex-direction: column;
+    }
+    ._surgeries img{
+        height: 35px;
+    }
+    ._surgeries h2{
+        font-size: 23px;
+        margin-top: 5px;
+    }
+
+}
+
+}
+@media screen and (max-width:1100px){
+    #container h1{
+        font-size: 35px;
+        line-height: 50px;
+    }
+    #container #bg{
+        width: 50%;
+    }
+}
+@media screen and (max-width:850px){
+    #container{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+        padding: 80px 6vw;
+    }
+    #container h1{
+        font-size: 5.5vw;
+        line-height: 50px;
+        text-align: center;
+    }
+    #container .text{
+        width: 90%;
+        margin-top: 50px;
+    }
+    #container #bg{
+        width: 80%;
+        transform: translateY(0);
+    }
+}
+@media screen and (max-width:600px){
+    #container{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+        padding: 80px 5vw;
+    }
+    #container h1{
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+    }
+    #container p{
+        text-align: center;
+        font-size: 15px;
+        margin-top: 15px;
+    }
+    #container .text{
+        width: 100%;
+        margin-top: 20px;
+    }
+    #container #bg{
+        width: 100%;
+        transform: translateY(0);
+    }
+    #container button{
+        padding: 12px 15px;
+        justify-content: center;
+    }
+    #container .btn2{
+        margin-left: 15px;
+
+    }
+
+}
+
+
+
+
+/* ####################################    HOME PAGE  END   ##########################################################s */
+
+
+/* ####################################    About Page    ##########################################################s */
+
+#about{
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+#about .image{
+    width: 50%;
+    background: url("../Images/about.jpg");
+    min-height: 550px;
+    border-radius: 0 10px 10px 0;
+    background-size: cover;
+    background-position: center;
+}
+
+#about .content{
+    width: 50%;
+    padding: 0 5vw 0 70px;
+}
+#about .content h5{
+    font-size: 16px;
+    color: rgb(16, 102, 207);
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+}
+#about .content h1{
+    color: rgb(49, 50, 52);
+    font-family: 'poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    font-size: 38px;
+    margin-top: 10px;
+}
+#about .content i{
+    width: 90px;
+    height: 90px;
+    font-size: 30px;
+    padding-top: 20px;
+    border: 10px solid rgb(16, 102, 207);
+    border-radius: 50%;
+    text-align: center;
+}
+#about .content .item{
+    display: flex;  
+    margin-top: 35px;
+}
+#about .content h2{
+    margin-left: 2.5vw;
+    font-family: 'poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(76, 109, 143);
+    letter-spacing: 0.3px;
+}
+#about .content p{
+    margin-left: 2.5vw;
+    width: 400px;
+    color: rgb(76, 109, 143);
+    font-size: 15px;
+    font-family: 'poppins';
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+@media screen and (max-width:1000px){
+    #about{
+        padding: 80px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    #about .image{
+        width: 100%;
+        min-height: 400px;
+    }
+    #about .content{
+        width: 100%;
+        padding: 30px 50px 0 50px;
+    }
+}
+
+@media screen and (max-width:800px){
+    #about{
+        padding: 0 0 ;
+        display: flex;
+    }
+    #about .content i{
+        width: 70px;
+        height: 70px;
+        font-size: 25px;
+        padding-top: 15px;
+        border: 8px solid rgb(16, 102, 207);
+    }
+    #about .content .item{
+        display: flex;  
+        margin-top: 30px;
+    }
+    #about .content h2{
+        margin-left: 20px;
+        font-size: 23px;
+    }
+    #about .content p{
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width:550px){
+    #about .content{
+        width: 100%;
+        padding: 30px 10px 30px 10px;
+    }
+
+    #about .content h1{
+        color: rgb(49, 50, 52);
+        font-family: 'poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        font-size: 30px;
+        margin-top: 5px;
+    }
+    #about .image{
+        width: 100%;
+        min-height: 250px;
+    }
+    #about .content .text{
+        width: 80%;
+        padding-right: 15px;
+    }
+    #about .content h2{
+        margin-left: 20px;
+        font-size: 20px;
+    }
+    #about .content p{
+        width: 100%;
+        font-size: 14px;
+        margin: 0;
+        margin-left: 20px;
+    }
+}
+
+/* ####################################    About Page   END  ##########################################################s */
+
+#heading h2{
+    font-size: 35px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: rgb(58, 56, 56);
+}
+
+@media screen and (max-width:550px){
+    #heading h2{
+        font-size: 25px;
+        font-family: 'poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+
+
+
+/* ####################################      SPECIALITY   PAGE   ############################################### */
+
+
+#speciality{
+    padding: 80px 10vw;
+    background-color: var(--gray_bg);
+}
+#speciality  #sec_about{
+    display: none;
+}
+#speciality nav{
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+}
+#speciality nav p{
+    padding: 1px 20px;
+    font-family: 'poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+#speciality nav p:hover{
+    cursor: pointer;
+    color: var(--royalblue);
+}
+
+#speciality .specialist_con{
+    background-image: url(../Images/bg-map.png);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+#speciality .specialist_con img{
+    width: 36vw;
+}
+#speciality .specialist_con h3{
+    line-height: 35px;
+    letter-spacing: 0.3px;
+    font-size: 17px;
+    background-size: 15px 15px;
+    font-family: 'cabin', sans-serif;
+    margin-left: 15px;
+    transform: translateY(-12px);
+    color: rgb(70, 67, 67);
+}
+#speciality .specialist_con i{
+    font-size: 17px;
+    color: rgb(21, 140, 191);
+}
+
+#speciality .specialist_con .content{
+    margin-left: 25px;
+}
+
+@media screen and (max-width:1100px){
+    #speciality .specialist_con{
+        background-position: bottom;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #speciality .specialist_con img{
+        width: 50vw;
+    }
+    #speciality .specialist_con .content{
+        margin-left: 0px;
+    }
+    
+}
+
+@media screen and (max-width:500px){
+    #speciality{
+        padding: 80px 5vw;
+        background-color: var(--gray_bg);
+    }
+    #speciality nav{
+        justify-content: center;
+        display: flex;
+        padding-bottom: 20px 0;
+    }
+    #speciality nav p{
+        padding: 1px 8px;
+        font-family: 'poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+    #speciality #heading h2{
+        font-size: 26px;
+    }
+    #speciality .specialist_con .content{
+        margin-top: 15px;
+    }
+}
+
+
+
+
+
+#speciality .specialist_con p{
+    font-size: 17px;
+    color: var(--light_gray);
+    font-family: 'roboto', sans-serif;
+}
+#speciality .specialist_con .images{
+    position: relative;
+}
+#playBtn{
+    position: absolute;
+    right: -5%;
+    top: 30%;
+    padding: 36px 40px;
+    background-color: rgb(245, 255, 255);
+    border-radius: 50%;
+    font-size: 22px;
+    color: rgb(16, 102, 207);
+    outline: 8px solid rgba(239, 252, 255, 0.372);
+    z-index: 5;
+}
+#playBtn:hover{
+    /* background-color: var(--royalblue); */
+    outline: 20px solid rgba(239, 252, 255, 0.372);
+    transition: 0.1s ease-out;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width:750px){
+    #speciality{
+        padding: 20px 3vw;
+    }
+    #speciality .specialist_con p{
+        font-size: 16px;
+    }
+    #speciality .specialist_con img{
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width:750px){
+    #playBtn{
+        right: 50%;
+        transform: translateX(50%);
+        top: 30%;
+        padding: 33px 38px;
+    }
+}
+
+
+/* #########################W####     SERVICES PAGE    ########################################## */
+
+#services{
+    padding: 100px 8vw 50px 8vw;
+    background-color: white
+}
+#services .heading p{
+    font-size: 16px;
+    font-family: 'poppins';
+    color: rgb(16, 102, 207);
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+#services .heading h2{
+    font-size: 37px;
+    font-family: 'poppins';
+    color: rgb(43, 45, 46);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+#services .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    row-gap: 50px;
+    column-gap: 10px;
+}
+#services .container .item{
+    width: 300px;
+    padding: 25px 20px;
+    box-shadow: rgba(176, 176, 176, 0.35) 1px 3px 20px;
+    text-align: center;
+    position: relative;
+}
+#services .container img{
+    width: 70px;
+}
+#services .container h3{
+    font-family: 'poppins';
+    font-size: 22px;
+    color: rgb(38, 41, 41);
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+#services .container p{
+    font-family: 'cabin';
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    color: rgb(67, 96, 120);
+    margin-top: 10px;
+}
+#services .container .item .hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: rgb(16, 102, 207);
+    color: aliceblue;
+    padding: 25px 20px;
+    opacity: 0;
+    cursor: pointer;
+}
+#services .container .item .hover h3, #services .container .item .hover p{
+    color: white;
+    font-family: 'cabin';
+    letter-spacing: 0.3px;
+}
+#services .container .item .hover button{
+    padding: 10px 25px;
+    background-color: white;
+    color: rgb(16, 102, 207);
+    font-family: 'poppins';
+    border: none;
+    border-radius: 3px;
+}
+#services .container .item:hover .hover{
+    transition: 0.2s linear;
+    opacity: 1;
+}
+#services .container .item .hover button:hover{
+    background-color: rgb(39, 40, 41);
+    color: #fff;
+}
+
+
+@media screen and (max-width:500px){
+    #services{
+        padding: 70px 3vw 50px 3vw;
+    }
+    #services .container{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        row-gap: 20px;
+        column-gap: 10px;
+    }
+    #services .container .item{
+        width: 100%;
+        padding: 15px 20px;
+        box-shadow: rgba(131, 131, 131, 0.02) 0px 1px 3px 0px, rgba(88, 88, 88, 0.15) 0px 0px 0px 1px;
+        /* border: 1px solid rgb(219, 219, 219); */
+        border-radius: 10px;
+    }
+    #services .container .item .hover{
+        width: 100%;
+        border-radius: 10px;
+    }
+    #services .heading h2{
+        font-size: 28px;
+        margin-left: 10px;
+        letter-spacing: 0.1px;
+    }
+    #services .heading p{
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+/* <!-- ##########################     Equipment PAGE    ########################################### --> */
+
+#equipment{
+    padding: 80px 4vw;
+    position: relative;
+}
+#equipment #heading{
+    text-align: center;
+}
+#equipment #heading p{
+    color: var(--royalblue);
+    margin-bottom: 15px;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+}
+#equipment .eqp_content::-webkit-scrollbar{
+    display: none;
+}
+#equipment .item{
+    min-height: 500px;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px 0px 100px;
+    background-color: white;
+}
+#equipment .item img{
+    width: 28vw;
+    filter: none;
+}
+#equipment .item .text{
+    width: 40vw;
+}
+#equipment .item .text h2{
+    color: var(--gray_text);
+    font-size: 28px;
+    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.item .text h3{
+    line-height: 35px;
+    letter-spacing: 0.3px;
+    font-size: 17px;
+    background-size: 15px 15px;
+    list-style-type: none;
+    font-family: 'cabin', sans-serif;
+    margin-left: 15px;
+    transform: translateY(-8px);
+}
+
+.item .text i{
+    font-size: 17px;
+    color: rgb(21, 140, 191);
+}
+
+
+
+
+
+
+
+/*      Table      */
+#equipment .item .text table{
+    border: none;
+    width: 100%;
+}
+#equipment .item .text table td, #equipment .item .text table th {
+    padding: 8px;
+    font-family: 'roboto', sans-serif;
+    letter-spacing: 0.2px;
+}
+#equipment .item .text tr:nth-child(even){background-color: var(--gray_bg);}
+
+
+#carouselExampleIndicators .carousel-control-next,
+#carouselExampleIndicators .carousel-control-prev {
+    width: 50px;
+    opacity: 1;
+}
+#carouselExampleIndicators .carousel-control-next-icon,
+#carouselExampleIndicators .carousel-control-prev-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 70% 70%;
+    background-color: rgb(21, 140, 191);
+    border-radius: 10px;
+}
+#carouselExampleIndicators .carousel-indicators{
+    bottom: -50px;
+}
+#carouselExampleIndicators .carousel-indicators [data-bs-target]{
+    background-color: rgb(21, 140, 191);
+    height: 4px;
+}
+
+
+
+
+
+@media screen and (max-width:1000px){
+#equipment{
+    padding: 50px 5vw;
+}
+#equipment  .item{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px 0 20px 0;
+}
+#equipment .item img{
+    width: 35vw;
+}
+#equipment .item .text{
+    width: 50vw;
+}
+}
+@media screen and (max-width:800px){
+    #equipment{
+        padding: 30px 4vw;
+    }
+    #equipment .item{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 60px 0 20px 0;
+    }
+    #equipment  .item img{
+        width: 70%;
+        height: auto;
+        text-align: center;
+    }
+    #equipment .item .text{
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width:500px){
+    #equipment{
+        padding: 50px 3vw;
+    }
+    #equipment .item{
+        height: 800px;
+        padding-top: 10px;
+    }
+    #equipment  .item .text h2{
+        font-size: 20px;
+        letter-spacing: 0.3px;
+    }
+    #equipment  .item img{
+        width: 75%;
+        height: auto;
+        text-align: center;
+    }
+    .item .text h3{
+        line-height: 30px;
+        letter-spacing: 0.3px;
+        font-size: 16px;
+        color: rgb(54, 52, 50);
+        background-size: 15px 15px;
+        list-style-type: none;
+        font-family: 'cabin', sans-serif;
+    }
+}
+
+
+
+
+/* <!-- ##########################     FAQ PAGE    ########################################### --> */
+
+
+#faq{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#faq #bgImg{
+    width: 45vw;
+    background: url(../Images/stock-photo-attractive-female-doctor-ophthalmologist-is-checking-the-eye-vision-of-handsome-young-man-in-1038422074.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}   
+#faq .content{
+    width: 55vw;
+    padding: 80px 5vw;
+    background-color: var(--gray_bg);
+}
+#faq .content h1{
+    color: var(--gray_text);
+    font-weight: bold;
+    font-family: 'josefin sans', sans-serif;
+}
+
+
+#faq .accordion-body{
+    font-family: 'roboto', sans-serif;
+    letter-spacing: 0.3px;
+    line-height: 30px;
+    color: var(--light_gray);
+}
+#faq .accordion-header{
+    font-family: 'poppins', sans-serif;font-size: 15px; letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+#faq .content .button{
+    margin-top: 30px;
+    padding: 13px 25px;
+    border: none;
+    background: linear-gradient(to left top, rgb(22, 130, 163), rgb(24, 161, 220));
+    color: white;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'poppins', sans-serif;
+    letter-spacing: 0.3px;
+}
+#faq .content .button:hover{
+    outline-offset: 4px;
+    outline: 2px solid rgb(27, 163, 222);
+    transition: 0.2s linear;
+}
+#accordionExample{
+    margin-top: 40px;
+}
+
+
+@media screen and (max-width:1200px){
+    #faq #bgImg{
+        width: 45vw;
+        background: url(../Images/stock-photo-attractive-female-doctor-ophthalmologist-is-checking-the-eye-vision-of-handsome-young-man-in-1038422074.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }  
+}
+@media screen and (max-width:850px){
+    #faq{
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #faq #bgImg{
+        width: 100vw;
+        height: 300px;
+        background-position: top center;
+    }  
+    #faq .content{
+        width: 100vw;
+        padding: 50px 3vw;
+    }
+    #accordionExample{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:500px){
+    #faq #bgImg{
+        width: 100vw;
+        height: 220px;
+        background-position: top center;
+    }  
+    
+#faq .accordion-body{
+    letter-spacing: 0.2px;
+    font-size: 15px;
+    line-height: 23px;
+}
+#faq .accordion-header{
+    font-family: 'cabin', sans-serif;font-size: 15px; letter-spacing: 1px;
+}
+#faq .accordion-button{
+    padding: 12px 10px;
+}
+}
+
+
+
+
+
+/* ############################      TESTIMONIALS PAGE     ############################################### */
+
+#testimonials{
+    display: flex;
+    padding: 50px 5vw 50px 3vw;
+    background-image: url(../Images/bg-map.png);
+    justify-content: space-between;
+}
+#testimonials img{
+    width: 40vw;
+}
+#testimonials #quote{
+    padding: 30px 35px;
+    background-color: rgb(72, 115, 246);
+    border-radius: 50%;
+    color: white;
+    font-size: 45px;
+    position: absolute;
+    left: 37%;
+    top: 40%;
+}
+
+
+#testimonials .container{
+    width: 45vw;
+    justify-items: right;
+    padding-top: 50px;
+}
+#testimonials .container h1{
+    font-size: 40px;
+    color: rgb(52, 52, 52);
+    letter-spacing: 0.2px;
+    font-weight: bold;
+    font-family: 'josefin sans', sans-serif;
+}
+#testimonials .container h1 i{
+    font-size: 60px;
+    color: rgb(52, 52, 52);
+}
+
+#testimonials .container .testimonial{
+    width: 100%;
+    overflow-x: hidden;
+}
+#testimonials .container .slide_row{
+    width: 45vw;
+    display: flex;
+}
+#testimonials .container .slide_col{
+    min-width: 100%;
+    padding: 30px 10px 0 20px;
+}
+#testimonials .container .slide_col p{
+   font-family: 'roboto', sans-serif;
+   color: rgb(71, 71, 71);
+   font-size: 18px;
+   text-align: center;
+   line-height: 28px;
+   font-style: italic;  
+}
+#testimonials .container .slide_col h3{
+    font-family: 'jost', sans-serif;
+    color: var(--light_gray);
+    font-size: 17px;
+    text-align: center;
+    line-height: 28px;
+    font-style: italic;
+    margin-top: 30px;
+}
+#testimonials .container .indigator{
+    text-align: center;
+    margin-top: 20px;
+}
+#testimonials .container .indigator .btn{
+    background-color: rgb(165, 165, 165);
+    height: 15px;
+    margin-left: 5px;
+    width: 15px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+}
+#testimonials .container .indigator .btn.active{
+    background-color: var(--royalblue);
+    border: none;
+}
+
+
+@media screen and (max-width:1100px){
+#testimonials{
+    padding: 50px 1vw 50px 1vw;
+}
+#testimonials #quote{
+    display: none;
+}
+}
+@media screen and (max-width: 850px){
+    #testimonials{
+        padding: 30px 2vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #testimonials img{
+        width: 80vw;
+    }
+    #testimonials .container{
+        width: 95vw;
+        justify-items: center;
+        padding-top: 10px;
+    }
+    #testimonials .container h1{
+        font-size: 35px;
+    }
+    #testimonials .container h1 i{
+        color: rgb(31, 161, 217);
+    }
+    #testimonials .container .slide_row{
+        width: 90vw;
+    }
+    #testimonials .container .slide_col{
+        min-width: 100%;
+        padding: 10px 10px 0 10px;
+    }
+    #testimonials .container .slide_col p{
+       font-size: 17.5px; 
+    }
+    #testimonials .container .slide_col h3{
+        margin-top: 25px;
+    }
+}
+
+
+
+
+/* ############################      SPECIALISTS PAGE     ############################################### */
+
+#specialist{
+    padding: 80px 10vw;
+    background-color: white;
+}
+#specialist #heading{
+    text-align: center;
+}
+#specialist #heading p{
+    color: var(--royalblue);
+    margin-bottom: 15px;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+}
+
+#specialist .doct_content{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    padding: 60px 0 0  0;
+}
+#specialist .doct_content .item .img{
+    position: relative;
+    width: 350px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#specialist .doct_content .item .img img{
+    width: 100%;
+}
+#specialist .doct_content .item .img:hover img{
+    transform: scale(1.15, 1.15);
+}
+#specialist .doct_content .item h3{
+    text-align: center;font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--gray_text);
+    margin-top: 25px;
+}
+#specialist .doct_content .item p{
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    color: var(--royalblue);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+#specialist .doct_content .item .socila_link{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+#specialist .doct_content .item .socila_link i{
+    width: 45px;
+    height: 45px;
+    color: var(--royalblue);
+    background-color: white;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.539) 0px 3px 5px;
+}
+#specialist .doct_content .item .socila_link i:hover{
+    color: white;
+    cursor: pointer;
+    background-color: var(--royalblue);
+}
+
+
+@media screen and (max-width:500px){
+    #specialist{
+        padding: 30px 5vw;
+    }
+    #specialist .doct_content .item .img{
+        width: 320px;
+    }
+    #specialist #heading h2{
+        font-size: 28px;
+    }
+}
+
+
+
+
+/* ############################      Appointments PAGE     ############################################### */
+
+
+
+#appointments{
+    padding: 130px 10vw;
+    background: linear-gradient(to left, rgba(41, 31, 20, 0.553), rgba(5, 49, 68, 0.484)), url(../Images/pexels-jonathan-borba-15770389.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    display: flex;justify-content: center;
+    align-items: center;
+}
+
+#appointments h1{
+    font-size: 37px;
+    font-family: 'poppins', sans-serif;
+    line-height: 70px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.7px;
+}
+#appointments p{
+    font-size: 16px;
+    font-family: 'poppins', sans-serif;
+    line-height: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+}
+#appointments button{
+   padding: 13px 25px;
+   background: linear-gradient(to left top, rgb(5, 148, 187), rgb(47, 141, 223));
+   border: none;
+   border-radius: 30px;
+   color: white;
+   font-family: 'poppins', sans-serif;
+   font-size: 15px;
+   letter-spacing: 0.5px;
+}
+
+
+
+
+
+
+
+/* ############################      CONTACT PAGE     ############################################### */
+
+#contact{
+    padding: 50px 5vw 0 5vw;
+    display: flex;
+    justify-content: space-between;
+}
+#contact .form{
+    padding: 50px 4vw;
+    width: 45vw;
+    background: url(../Images/bg-map.png);
+}
+#contact img{
+    width: 45vw;
+}
+#contact .form h2{
+    font-size: 35px;
+    font-family: 'poppins', sans-serif;
+    color: var(--gray_text);
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+#contact .form p{
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    color: var(--light_gray);
+    letter-spacing: 0.1px;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 25px;
+}
+#contact .form form input{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    border: 0.5px solid rgb(222, 222, 222);
+    border-radius: 7px;
+    box-shadow: rgba(201, 201, 201, 0.2) 0px 1px 5px 0px;
+    margin-top: 20px;
+    outline: none;
+}
+#contact .form form textarea{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    border: 0.5px solid rgb(222, 222, 222);
+    border-radius: 7px;
+    box-shadow: rgba(201, 201, 201, 0.2) 0px 1px 5px 0px;
+    margin-top: 20px;
+    outline: none;
+}
+#contact .form form input::placeholder{
+    color: rgb(151, 151, 151);
+}
+#contact .form form .flex_input{
+    display: flex;
+    column-gap: 15px;
+}
+
+#contact .form form button{
+    margin-top: 35px;
+    padding: 13px 25px;
+    border: none;
+    background: linear-gradient(to left top, rgb(22, 191, 243), rgb(43, 191, 255));
+    color: white;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'poppins', sans-serif;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+#contact .form form button:hover{
+    outline-offset: 4px;
+    outline: 2px solid rgb(33, 189, 255);
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width:1000px){
+    #contact img{
+        height: 50vw;
+    }
+    #contact .form h2{
+        font-size: 25px;
+        font-family: 'poppins', sans-serif;
+        color: var(--gray_text);
+        font-weight: bold;
+        letter-spacing: 0.8px;
+        text-align: center;
+    }
+    #contact{
+        align-items: flex-end;
+    }
+}
+
+@media screen and (max-width:850px){
+    #contact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    #contact img{
+        width: 85vw;
+        height: auto;
+    }
+    #contact .form{
+        width: 100%;
+    }
+    #contact .form h2{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:850px){
+    #contact .form{
+        padding: 40px 0;
+        width: 100%;
+    }
+    #contact .form form .flex_input{
+        display: flex;
+        column-gap: 5px;
+    }
+
+    /* *******************************   Appointments      *********************************************** */
+    #appointments{
+        padding: 50px 5vw;
+    }
+    #appointments h1{
+        font-size: 25px;
+        line-height: 35px;
+    }
+    #appointments p{
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: 0px;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* ############################      FOOTER PAGE     ############################################### */
+
+
+footer{
+    padding: 50px 10vw;
+    background-color: var(--gray_bg);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 50px;
+}
+footer .item1{
+    width: 300px;
+}
+footer .item1 input{
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    border: 0.5px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    box-shadow: rgba(247, 247, 247, 0.2) 0px 1px 5px 0px;
+    margin-top: 0px;
+    outline: none;
+}
+footer .item1 p{
+    font-size: 15px;
+    font-family: 'roboto', sans-serif;
+    color: rgb(92, 92, 92);
+    margin-top: 15px;
+}
+footer .item1 div i{
+    text-align: center;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    padding: 12px;
+    color: var(--royalblue);
+    margin-top: 20px;
+    margin-left: 15px;
+}
+footer .item1 div i:hover{
+    background-color: var(--royalblue);
+    color: white;
+}
+
+
+footer .item2 h2,
+footer .item3 h2{
+    font-size: 25px;
+    font-family: 'poppins', sans-serif;
+    color: var(--gray_text);
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+footer .item3 p{
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    color: var(--light_gray);
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+footer .item3 i{
+    color: var(--royalblue);
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+
+
+@media screen and (max-width:800px){
+footer{
+    padding: 50px 5vw;
+}
+footer .item2 h2,
+footer .item3 h2{
+    font-size: 22px;
+}
+footer .item1{
+    width: 100%;
+}
+
+
+
+
+
+
+
+}
+
+
